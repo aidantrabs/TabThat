@@ -2,6 +2,10 @@ package controllers
 
 import (
 	"example/bookmark-api/services"
+	"example/bookmark-api/models"
+	"github.com/gin-gonic/gin"
+
+	"net/http"
 )
 
 type BookmarkController struct {
@@ -32,7 +36,7 @@ func (bmc *BookmarkController) CreateBM(ctx *gin.Context) {
 
 func (bmc *BookmarkController) GetBM(ctx *gin.Context) {
 	
-	var id string:= ctx.Param("id")
+	var id string = ctx.Param("id")
 
 	bm, err := bmc.BookmarkService.GetBM(&id)
 	if err != nil {
@@ -72,7 +76,7 @@ func (bmc *BookmarkController) UpdateBM(ctx *gin.Context) {
 
 func (bmc *BookmarkController) DeleteBM(ctx *gin.Context) {
 	
-	var id string:= ctx.Param("id")
+	var id string = ctx.Param("id")
 
 	if err := bmc.BookmarkService.DeleteBM(&id); err != nil {
 		ctx.IndentedJSON(http.StatusBadGateway, gin.H{"error": err.Error()})
@@ -85,9 +89,9 @@ func (bmc *BookmarkController) DeleteBM(ctx *gin.Context) {
 func (bmc *BookmarkController) RegisterRoutes(r *gin.RouterGroup) {
 	
 	bmroute := r.Group("/bookmark")
-	bookmark.POST("/create", bmc.CreateBM)
-	bookmark.GET("/get/:id", bmc.GetBM)
-	bookmark.GET("/getall", bmc.GetAllBM)
-	bookmark.PATCH("/update", bmc.UpdateBM)
-	bookmark.DELETE("/delete/:id", bmc.DeleteBM)
+	bmroute.POST("/create", bmc.CreateBM)
+	bmroute.GET("/get/:id", bmc.GetBM)
+	bmroute.GET("/getall", bmc.GetAllBM)
+	bmroute.PATCH("/update", bmc.UpdateBM)
+	bmroute.DELETE("/delete/:id", bmc.DeleteBM)
 }
