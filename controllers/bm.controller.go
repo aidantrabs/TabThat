@@ -19,7 +19,6 @@ func New(bmService services.BookmarkService) BookmarkController {
 }
 
 func (bmc *BookmarkController) CreateBM(ctx *gin.Context) {
-	
 	var bm models.Bookmark
 	if err := ctx.ShouldBindJSON(&bm); err != nil {
 		ctx.IndentedJSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -35,7 +34,6 @@ func (bmc *BookmarkController) CreateBM(ctx *gin.Context) {
 }
 
 func (bmc *BookmarkController) GetBM(ctx *gin.Context) {
-	
 	var id string = ctx.Param("id")
 
 	bm, err := bmc.BookmarkService.GetBM(&id)
@@ -48,7 +46,6 @@ func (bmc *BookmarkController) GetBM(ctx *gin.Context) {
 }
 
 func (bmc *BookmarkController) GetAllBM(ctx *gin.Context) {
-	
 	bms, err := bmc.BookmarkService.GetAllBM()
 	if err != nil {
 		ctx.IndentedJSON(http.StatusBadGateway, gin.H{"error": err.Error()})
@@ -59,7 +56,6 @@ func (bmc *BookmarkController) GetAllBM(ctx *gin.Context) {
 }
 
 func (bmc *BookmarkController) UpdateBM(ctx *gin.Context) {
-	
 	var bm models.Bookmark
 	if err := ctx.ShouldBindJSON(&bm); err != nil {
 		ctx.IndentedJSON(http.StatusBadRequest, gin.H{"error": err.Error()})
@@ -75,7 +71,6 @@ func (bmc *BookmarkController) UpdateBM(ctx *gin.Context) {
 }
 
 func (bmc *BookmarkController) DeleteBM(ctx *gin.Context) {
-	
 	var id string = ctx.Param("id")
 
 	if err := bmc.BookmarkService.DeleteBM(&id); err != nil {
@@ -87,7 +82,6 @@ func (bmc *BookmarkController) DeleteBM(ctx *gin.Context) {
 }
 
 func (bmc *BookmarkController) RegisterRoutes(r *gin.RouterGroup) {
-	
 	bmroute := r.Group("/bookmark")
 	bmroute.POST("/create", bmc.CreateBM)
 	bmroute.GET("/get/:id", bmc.GetBM)

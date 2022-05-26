@@ -16,27 +16,25 @@ import (
 )
 
 var (
-	ctx 				context.Context
-	err 				error
+	ctx 	context.Context
+	err 	error
 
-	bms 				services.BookmarkService
-	bmc 				controllers.BookmarkController
+	bms 	services.BookmarkService
+	bmc 	controllers.BookmarkController
 
-	client 			*mongo.Client
-	bookmarkcoll   	*mongo.Collection
-	server 			*gin.Engine
+	client *mongo.Client
+	bookmarkcoll *mongo.Collection
+	server *gin.Engine
 )
 
 func init() {
 	ctx = context.TODO()
 
-	// Connect to MongoDB
 	client, err = mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
 	if err != nil {
 		log.Fatal(err)
 	}
 	
-	// Check the connection
 	err = client.Ping(ctx, readpref.Primary())
 	if err != nil {
 		log.Fatal(err)
@@ -44,7 +42,6 @@ func init() {
 
 	fmt.Println("connected successfully")
 
-	// Get a handle for your collection
 	bookmarkcoll = client.Database("bookmarks").Collection("entries")
 	bms = services.NewBookmarkService(bookmarkcoll, ctx)
 	bmc = controllers.New(bms)

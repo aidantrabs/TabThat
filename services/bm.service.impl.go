@@ -72,7 +72,6 @@ func (bms *BookmarkServiceImpl) GetAllBM() ([]*models.Bookmark, error) {
 }
 
 func (bms *BookmarkServiceImpl) UpdateBM(bm *models.Bookmark) error {
-
 	item, _ := bms.bmcollection.UpdateOne(
 		bms.ctx, 
 		bson.D{primitive.E{Key: "id", Value: bm.ID}}, 
@@ -85,7 +84,6 @@ func (bms *BookmarkServiceImpl) UpdateBM(bm *models.Bookmark) error {
 }
 
 func (bms *BookmarkServiceImpl) DeleteBM(id *string) error {
-
 	item, _ := bms.bmcollection.DeleteOne(
 		bms.ctx, 
 		bson.D{primitive.E{Key: "id", Value: id}})
