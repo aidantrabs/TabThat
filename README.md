@@ -1,10 +1,24 @@
-# ArchiveBookmark
+<div align='center'>
+  
+```
+▄▄▄█████▓ ▄▄▄       ▄▄▄▄      ▄▄▄█████▓ ██░ ██  ▄▄▄     ▄▄▄█████▓
+▓  ██▒ ▓▒▒████▄    ▓█████▄    ▓  ██▒ ▓▒▓██░ ██▒▒████▄   ▓  ██▒ ▓▒
+▒ ▓██░ ▒░▒██  ▀█▄  ▒██▒ ▄██   ▒ ▓██░ ▒░▒██▀▀██░▒██  ▀█▄ ▒ ▓██░ ▒░
+░ ▓██▓ ░ ░██▄▄▄▄██ ▒██░█▀     ░ ▓██▓ ░ ░▓█ ░██ ░██▄▄▄▄██░ ▓██▓ ░ 
+  ▒██▒ ░  ▓█   ▓██▒░▓█  ▀█▓     ▒██▒ ░ ░▓█▒░██▓ ▓█   ▓██▒ ▒██▒ ░ 
+  ▒ ░░    ▒▒   ▓▒█░░▒▓███▀▒     ▒ ░░    ▒ ░░▒░▒ ▒▒   ▓▒█░ ▒ ░░   
+    ░      ▒   ▒▒ ░▒░▒   ░        ░     ▒ ░▒░ ░  ▒   ▒▒ ░   ░    
+  ░        ░   ▒    ░    ░      ░       ░  ░░ ░  ░   ▒    ░      
+               ░  ░ ░                   ░  ░  ░      ░  ░        
+                         ░                                       
 
-CRUD API for my soon-to-be archival system
+v1
+```
+</div>
 
 
-### TODO
-- Add documentation
-- Clean up formating
-- More testing: create frontend
-- Update README
+> RESTful CRUD API, connected to MongoDB.
+
+
+#### TODO
+- Add quickstart guide and endpoints to README
